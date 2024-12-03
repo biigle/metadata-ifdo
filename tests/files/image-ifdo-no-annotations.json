@@ -1,0 +1,78 @@
+{
+  "image-set-header": {
+    "image-set-ifdo-version": "v2.1.0",
+    "image-altitude-meters": -4094.5,
+    "image-coordinate-reference-system": "EPSG:4326",
+    "image-coordinate-uncertainty-meters": 4.74,
+    "image-set-ifdo-version": "v2.1.0",
+    "image-datetime": "2019-04-06 04:29:27.000000",
+    "image-acquisition": "photo",
+    "image-area-square-meter": 5,
+    "image-capture-mode": "mixed",
+    "image-coordinate-reference-system": "EPSG:4326",
+    "image-deployment": "survey",
+    "image-event": "SO268-2_100-1_OFOS",
+    "image-illumination": "artificial light",
+    "image-latitude": 11.8581802,
+    "image-license": "CC-BY",
+    "image-longitude": -117.0214864,
+    "image-marine-zone": "seafloor",
+    "image-meters-above-ground": 2,
+    "image-navigation": "beacon",
+    "image-project": "SO268",
+    "image-quality": "raw",
+    "image-resolution": "mm",
+    "image-scale-reference": "laser marker",
+    "image-set-metadata-handle": "20.500.12085/d7546c4b-307f-4d42-8554-33236c577450@metadata",
+    "image-set-name": "SO268 SO268-2_100-1_OFOS SO_CAM-1_Photo_OFOS",
+    "image-set-uuid": "d7546c4b-307f-4d42-8554-33236c577450",
+    "image-spectral-resolution": "rgb",
+    "image-copyright": "(c) GEOMAR Helmholtz Centre for Ocean Research Kiel. Contact: presse@geomar.de",
+    "image-abstract": "Image Abstract",
+    "image-set-handle": "https://hdl.handle.net/20.500.12085/d7546c4b-307f-4d42-8554-33236c577450",
+    "image-license": {
+        "name": "CC-BY",
+        "uri": "https://creativecommons.org/licenses/by/4.0/legalcode"
+    },
+    "image-project": {
+        "name": "Test Project",
+        "uri": "https://doi.org/example"
+    },
+    "image-event": {
+        "name": "SO268-1_21-1_OFOS",
+        "uri": "https://portal.geomar.de/metadata/event/show/1603320?leg=348623"
+    },
+    "image-platform": {
+        "name": "SO_PFM-01_OFOS",
+        "uri": "https://dm.pages.geomar.de/equipment/equipment/SO/PFM/SO_PFM-1_OFOS_Isitec/"
+    },
+    "image-sensor": {
+        "name": "SO_CAM-1_Photo_OFOS",
+        "uri": "https://dm.pages.geomar.de/equipment/equipment/SO/CAM/SO_CAM-1_Photo_OFOS/"
+    },
+    "image-pi": {
+        "name": "Timm Schoening",
+        "uri":"https://orcid.org/0000-0002-0035-3282"
+    },
+    "image-context": {
+        "name": "Text Context",
+        "uri": "https://example.com"
+    },
+    "image-creators": [
+        {
+          "name": "Timm Schoening",
+          "uri": "https://orcid.org/0000-0002-0035-3282"
+        }
+    ]
+  },
+  "image-set-items": {
+    "SO268-2_100-1_OFOS_SO_CAM-1_20190406_042927.JPG": {
+      "image-datetime": "2019-04-06 04:29:27.000000",
+      "image-uuid": "61056dd9-8230-42df-bf7a-395b03d09f98",
+      "image-hash-sha256": "0193d337cc4ed6f64ee7e6bb4ccb811b9714c0007632a64abc944ec420e81e45",
+      "image-handle": "https://example.com/61056dd9-8230-42df-bf7a-395b03d09f98",
+      "image-depth": 2248,
+      "image-camera-yaw-degrees": 20
+    }
+  }
+}

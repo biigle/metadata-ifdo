@@ -87,4 +87,13 @@ class IfdoParserTest extends TestCase
         $this->assertSame(681.7, $annotation->points[0][0]);
         $this->assertSame(0.402947, $annotation->frames[0]);
     }
+
+    public function testGetMetadataNoLabels()
+    {
+        $file   = new File(__DIR__ . "/files/image-ifdo-no-annotations.json");
+        $parser = new IfdoParser($file);
+        $data   = $parser->getMetadata();
+        $this->assertSame(MediaType::imageId(), $data->type->id);
+        $this->assertSame('SO268 SO268-2_100-1_OFOS SO_CAM-1_Photo_OFOS', $data->name);
+    }
 }
