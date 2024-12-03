@@ -23,8 +23,8 @@ class Converter
     public function convert($ifdo)
     {
         $header = $ifdo->getImageSetHeader();
-        $this->annotators = $this->extractIfdoAnnotators($header['image-annotation-creators']);
-        $this->labels     = $this->extractIfdoLabels($header['image-annotation-labels']);
+        $this->annotators = $this->extractIfdoAnnotators($header['image-annotation-creators'] ?? []);
+        $this->labels     = $this->extractIfdoLabels($header['image-annotation-labels'] ?? []);
 
         $data = new VolumeMetadata(
             type: $this->mediaType(),
