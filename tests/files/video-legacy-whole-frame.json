@@ -1,0 +1,53 @@
+{
+    "image-set-header":
+    {
+        "image-acquisition": "video",
+        "image-annotation-creators":
+        [
+            {
+                "id": "annotator-uuid",
+                "uuid": "annotator-uuid",
+                "name": "Legacy Annotator"
+            }
+        ],
+        "image-annotation-labels":
+        [
+            {
+                "id": "label-uuid",
+                "name": "Legacy Label",
+                "uuid": "label-uuid",
+                "color": "ff5900"
+            }
+        ],
+        "image-set-name": "Legacy whole-frame video"
+    },
+    "image-set-items":
+    {
+        "legacy-video.mp4":
+        [
+            {
+                "image-annotations":
+                [
+                    {
+                        "coordinates": [],
+                        "frames":
+                        [
+                            10.0,
+                            20.0
+                        ],
+                        "labels":
+                        [
+                            {
+                                "annotator": "annotator-uuid",
+                                "created-at": "2023-11-22T14:02:18.000000Z",
+                                "label": "label-uuid"
+                            }
+                        ],
+                        "shape": "whole-frame"
+                    }
+                ],
+                "image-datetime": "2019-04-06 04:29:27.000000"
+            }
+        ]
+    }
+}

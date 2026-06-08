@@ -180,6 +180,7 @@ class Converter
         case 'ellipse':
             return Shape::ellipse();
         case 'whole-image':
+        case 'whole-frame':
             return Shape::wholeFrame();
         }
     }
