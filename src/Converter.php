@@ -179,7 +179,7 @@ class Converter
             return Shape::rectangle();
         case 'ellipse':
             return Shape::ellipse();
-        case 'whole-frame':
+        case 'whole-image':
             return Shape::wholeFrame();
         }
     }
