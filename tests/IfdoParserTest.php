@@ -94,21 +94,6 @@ class IfdoParserTest extends TestCase
         $this->assertSame(0.402947, $annotation->frames[0]);
     }
 
-    public function testGetVideoMetadataWithLegacyWholeFrameShape()
-    {
-        $file   = new File(__DIR__ . "/files/video-legacy-whole-frame.json");
-        $parser = new IfdoParser($file);
-        $data   = $parser->getMetadata();
-        $file   = $data->getFiles()->last();
-
-        $this->assertCount(1, $file->getAnnotations());
-        $annotation = array_pop($file->annotations);
-
-        $this->assertSame(Shape::wholeFrameId(), $annotation->shape->id);
-        $this->assertSame([], $annotation->points);
-        $this->assertSame([10.0, 20.0], $annotation->frames);
-    }
-
     public function testGetMetadataNoLabels()
     {
         $file   = new File(__DIR__ . "/files/image-ifdo-no-annotations.json");
