@@ -1433,6 +1433,23 @@
                             }
                         ],
                         "shape": "circle"
+                    },
+                    {
+                        "coordinates": [],
+                        "frames":
+                        [
+                            10.0,
+                            20.0
+                        ],
+                        "labels":
+                        [
+                            {
+                                "annotator": "4b6f42ff-6198-4b52-aa1c-fde5aa50265b",
+                                "created-at": "2023-11-22T14:02:18.000000Z",
+                                "label": "some-uuid"
+                            }
+                        ],
+                        "shape": "whole-image"
                     }
                 ],
                 "image-area-square-meter": 5.1,
