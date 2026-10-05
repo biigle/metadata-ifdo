@@ -78,7 +78,7 @@ class IfdoParserTest extends TestCase
         $this->assertCount(2, $file->getAnnotations());
         $annotation = array_pop($file->annotations);
 
-        $this->assertSame(Shape::wholeFrameId(), $annotation->shape->id);
+        $this->assertSame(Shape::WHOLE_FRAME, $annotation->shape);
         $this->assertSame([], $annotation->points);
         $this->assertSame([10.0, 20.0], $annotation->frames);
 
