@@ -1,12 +1,12 @@
 <?php
 namespace Biigle\Modules\MetadataIfdo;
 
-use Biigle\MediaType;
+use Biigle\Enums\MediaType;
+use Biigle\Enums\Shape;
 use Biigle\Services\MetadataParsing\Label;
 use Biigle\Services\MetadataParsing\LabelAndUser;
 use Biigle\Services\MetadataParsing\User;
 use Biigle\Services\MetadataParsing\VolumeMetadata;
-use Biigle\Shape;
 use Illuminate\Support\Arr;
 
 class Converter

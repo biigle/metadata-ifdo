@@ -1,10 +1,10 @@
 <?php
 namespace Biigle\Tests\Modules\MetadataIfdo;
 
-use Biigle\MediaType;
+use Biigle\Enums\MediaType;
+use Biigle\Enums\Shape;
 use Biigle\Modules\MetadataIfdo\IfdoParser;
 use Symfony\Component\HttpFoundation\File\File;
-use Biigle\Shape;
 use TestCase;
 
 class IfdoParserTest extends TestCase
