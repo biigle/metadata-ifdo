@@ -1,10 +1,10 @@
 <?php
 namespace Biigle\Tests\Modules\MetadataIfdo;
 
-use Biigle\MediaType;
+use Biigle\Enums\MediaType;
+use Biigle\Enums\Shape;
 use Biigle\Modules\MetadataIfdo\IfdoParser;
 use Symfony\Component\HttpFoundation\File\File;
-use Biigle\Shape;
 use TestCase;
 
 class IfdoParserTest extends TestCase
@@ -28,7 +28,7 @@ class IfdoParserTest extends TestCase
         $file   = new File(__DIR__ . "/files/image-ifdo.json");
         $parser = new IfdoParser($file);
         $data   = $parser->getMetadata();
-        $this->assertSame(MediaType::imageId(), $data->type->id);
+        $this->assertSame(MediaType::IMAGE, $data->type);
         $this->assertSame('SO268 SO268-2_100-1_OFOS SO_CAM-1_Photo_OFOS', $data->name);
         $this->assertNull($data->url);
         $this->assertSame('20.500.12085/d7546c4b-307f-4d42-8554-33236c577450', $data->handle);
@@ -46,7 +46,7 @@ class IfdoParserTest extends TestCase
         $this->assertCount(7, $file->getAnnotations());
         $annotation = array_pop($file->annotations);
 
-        $this->assertSame(Shape::polygonId(), $annotation->shape->id);
+        $this->assertSame(Shape::POLYGON, $annotation->shape);
         $this->assertSame('Hans Wurst', $annotation->labels[0]->user->name);
         $this->assertSame('4b6f42ff-6198-4b52-aa1c-fde5aa50265b', $annotation->labels[0]->user->uuid);
         $this->assertSame('Trash', $annotation->labels[0]->label->name);
@@ -60,7 +60,7 @@ class IfdoParserTest extends TestCase
         $file   = new File(__DIR__ . "/files/video-example-1.json");
         $parser = new IfdoParser($file);
         $data   = $parser->getMetadata();
-        $this->assertSame(MediaType::videoId(), $data->type->id);
+        $this->assertSame(MediaType::VIDEO, $data->type);
         $this->assertSame('SO268 SO268-2_100-1_OFOS SO_CAM-1_Photo_OFOS', $data->name);
         $this->assertNull($data->url);
         $this->assertSame('20.500.12085/d7546c4b-307f-4d42-8554-33236c577450', $data->handle);
@@ -78,13 +78,13 @@ class IfdoParserTest extends TestCase
         $this->assertCount(2, $file->getAnnotations());
         $annotation = array_pop($file->annotations);
 
-        $this->assertSame(Shape::wholeFrameId(), $annotation->shape->id);
+        $this->assertSame(Shape::WHOLE_FRAME, $annotation->shape);
         $this->assertSame([], $annotation->points);
         $this->assertSame([10.0, 20.0], $annotation->frames);
 
         $annotation = array_pop($file->annotations);
 
-        $this->assertSame(Shape::circleId(), $annotation->shape->id);
+        $this->assertSame(Shape::CIRCLE, $annotation->shape);
         $this->assertSame('Timm Schoening', $annotation->labels[0]->user->name);
         $this->assertSame('4b6f42ff-6198-4b52-aa1c-fde5aa50265b', $annotation->labels[0]->user->uuid);
         $this->assertSame('Animal', $annotation->labels[0]->label->name);
@@ -99,7 +99,7 @@ class IfdoParserTest extends TestCase
         $file   = new File(__DIR__ . "/files/image-ifdo-no-annotations.json");
         $parser = new IfdoParser($file);
         $data   = $parser->getMetadata();
-        $this->assertSame(MediaType::imageId(), $data->type->id);
+        $this->assertSame(MediaType::IMAGE, $data->type);
         $this->assertSame('SO268 SO268-2_100-1_OFOS SO_CAM-1_Photo_OFOS', $data->name);
     }
 }

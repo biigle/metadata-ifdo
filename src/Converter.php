@@ -1,12 +1,12 @@
 <?php
 namespace Biigle\Modules\MetadataIfdo;
 
-use Biigle\MediaType;
+use Biigle\Enums\MediaType;
+use Biigle\Enums\Shape;
 use Biigle\Services\MetadataParsing\Label;
 use Biigle\Services\MetadataParsing\LabelAndUser;
 use Biigle\Services\MetadataParsing\User;
 use Biigle\Services\MetadataParsing\VolumeMetadata;
-use Biigle\Shape;
 use Illuminate\Support\Arr;
 
 class Converter
@@ -168,19 +168,19 @@ class Converter
         switch ($shape)
         {
         case 'single-pixel':
-            return Shape::point();
+            return Shape::POINT;
         case 'polyline':
-            return Shape::line();
+            return Shape::LINE;
         case 'polygon':
-            return Shape::polygon();
+            return Shape::POLYGON;
         case 'circle':
-            return Shape::circle();
+            return Shape::CIRCLE;
         case 'rectangle':
-            return Shape::rectangle();
+            return Shape::RECTANGLE;
         case 'ellipse':
-            return Shape::ellipse();
+            return Shape::ELLIPSE;
         case 'whole-image':
-            return Shape::wholeFrame();
+            return Shape::WHOLE_FRAME;
         }
     }
 
@@ -189,9 +189,9 @@ class Converter
         switch ($this->acquisitionFormat)
         {
         case 'photo':
-            return MediaType::image();
+            return MediaType::IMAGE;
         case 'video':
-            return MediaType::video();
+            return MediaType::VIDEO;
         }
     }
 
