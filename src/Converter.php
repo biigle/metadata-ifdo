@@ -88,8 +88,34 @@ class Converter
     {
         foreach ($ifdoAnnotations as $ifdoAnnotation)
         {
-            $fileData->addAnnotation($this->ifdoToBiigleAnnotation($ifdoAnnotation));
+            if ($this->isFileLabel($ifdoAnnotation))
+            {
+                foreach ($this->ifdoLabelsToBiigleLabelAndUsers($ifdoAnnotation['labels']) as $labelAndUser)
+                {
+                    $fileData->addFileLabel($labelAndUser);
+                }
+            }
+            else
+            {
+                $fileData->addAnnotation($this->ifdoToBiigleAnnotation($ifdoAnnotation));
+            }
         }
+    }
+
+    /**
+     * Determine if an iFDO annotation is an image/video label.
+     *
+     * These have the "whole-image" shape and (in case of videos) no frames. Video
+     * annotations with the "whole-image" shape and frames are whole frame annotations.
+     */
+    private function isFileLabel($ifdoAnnotation): bool
+    {
+        if (($ifdoAnnotation['shape'] ?? null) !== 'whole-image')
+        {
+            return false;
+        }
+
+        return $this->acquisitionFormat === 'photo' || empty($ifdoAnnotation['frames']);
     }
 
     private function ifdoToBiigleAnnotation($ifdoAnnotation)
