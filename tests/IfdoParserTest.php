@@ -102,4 +102,39 @@ class IfdoParserTest extends TestCase
         $this->assertSame(MediaType::IMAGE, $data->type);
         $this->assertSame('SO268 SO268-2_100-1_OFOS SO_CAM-1_Photo_OFOS', $data->name);
     }
+
+    public function testGetMetadataImageLabels()
+    {
+        $file   = new File(__DIR__ . "/files/image-ifdo-file-labels.json");
+        $parser = new IfdoParser($file);
+        $data   = $parser->getMetadata();
+        $file   = $data->getFiles()->first();
+
+        $this->assertCount(1, $file->getFileLabels());
+        $label = $file->getFileLabels()[0];
+        $this->assertSame('Sand', $label->label->name);
+        $this->assertSame('Hans Wurst', $label->user->name);
+
+        $this->assertCount(1, $file->getAnnotations());
+        $this->assertSame(Shape::POINT, $file->getAnnotations()[0]->shape);
+    }
+
+    public function testGetMetadataVideoLabels()
+    {
+        $file   = new File(__DIR__ . "/files/video-ifdo-file-labels.json");
+        $parser = new IfdoParser($file);
+        $data   = $parser->getMetadata();
+        $this->assertSame(MediaType::VIDEO, $data->type);
+        $file   = $data->getFiles()->first();
+
+        $this->assertCount(1, $file->getFileLabels());
+        $this->assertSame('Sand', $file->getFileLabels()[0]->label->name);
+
+        // Whole frame annotations with frames are still annotations.
+        $this->assertCount(1, $file->getAnnotations());
+        $annotation = $file->getAnnotations()[0];
+        $this->assertSame(Shape::WHOLE_FRAME, $annotation->shape);
+        $this->assertSame([10.0, 20.0], $annotation->frames);
+        $this->assertSame('Fish', $annotation->labels[0]->label->name);
+    }
 }
